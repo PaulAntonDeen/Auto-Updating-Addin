@@ -1,4 +1,4 @@
 new window("Version",
 	<< modal,
-	Text box("3")
+	Text box("4")
 );
