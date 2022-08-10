@@ -1,0 +1,4 @@
+new window("Version",
+	<< modal,
+	Text box("1")
+);

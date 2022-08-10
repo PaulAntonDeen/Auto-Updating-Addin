@@ -1,0 +1,5 @@
+id=nu.padc.addintest
+name=addin test
+supportJmpSE=0
+addinVersion=220810
+minJmpVersion=16
