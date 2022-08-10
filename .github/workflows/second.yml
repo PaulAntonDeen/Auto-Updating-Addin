@@ -26,7 +26,7 @@ jobs:
       run: |
         composer install -o -q
     - name: Zip Folder
-      run: zip -r ${{ github.event.repository.name }}.zip .source/ -x ".git/*" ".github/*" "phpcs.xml" "composer.json" "composer.lock" ".gitignore"
+      run: zip -r ${{ github.event.repository.name }}.zip ./source/ -x ".git/*" ".github/*" "phpcs.xml" "composer.json" "composer.lock" ".gitignore"
 
     - name: Release
       uses: softprops/action-gh-release@v1
