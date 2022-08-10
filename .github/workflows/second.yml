@@ -11,9 +11,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: ls
     - name: Zip Folder
-      run: zip -r ${{ github.event.repository.name }}.zip ./Source
-
+      run: zip -r ${{ github.event.repository.name }}.zip Source
+    - run: cd Source
+    - run: ls
     - name: Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
