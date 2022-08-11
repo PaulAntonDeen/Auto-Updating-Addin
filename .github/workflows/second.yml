@@ -1,9 +1,9 @@
 name: Create Archive
-#on: [push]
-on:
-  release:
-    types:
-    - created
+on: [push]
+# on:
+#   release:
+#     types:
+#     - created
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,10 +20,6 @@ jobs:
         directory: 'Source'
         filename: 'latest.jmpaddin'
         exclusions: '*.git* /*node_modules/* .editorconfig'
-    # - uses: actions/upload-artifact@v1
-    #   with:
-    #     name: my-artifact
-    #     path: ${{ github.workspace }}/Source/latest.jmpaddin
     - name: push changes to remote
       run: |
         mv Source/latest.jmpaddin .
