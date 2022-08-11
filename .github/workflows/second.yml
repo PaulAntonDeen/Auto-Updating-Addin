@@ -25,8 +25,8 @@ jobs:
         path: ${{ github.workspace }}/Source/latest.jmpaddin
     - name: push changes to remote
       run: |
-        git config --global user.name "user mane"
-        git config --global user.email "user email"
+        git config --global user.name "PaulAntonDeen"
+        git config --global user.email "paulext@gmail.com"
 
         git add ${{ github.workspace }}/Source/latest.jmpaddin git commit -m "released"
         git push
