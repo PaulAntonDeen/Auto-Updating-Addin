@@ -1,5 +1,8 @@
 name: Create Archive
-on: [push]
+on:
+  release:
+    types:
+      - created
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,9 +17,16 @@ jobs:
       with:
         type: 'zip'
         directory: 'Source'
-        filename: 'latest.zip'
+        filename: 'latest.jmpaddin'
         exclusions: '*.git* /*node_modules/* .editorconfig'
     - uses: actions/upload-artifact@v1
       with:
         name: my-artifact
-        path: ${{ github.workspace }}/Source/latest.zip
+        path: ${{ github.workspace }}/Source/latest.jmpaddin
+    - name: push changes to remote
+      run: |
+      git config --global user.name "user mane"
+      git config --global user.email "user email"
+
+      git add ${{ github.workspace }}/Source/latest.jmpaddin git commit -m "released"
+      git push
