@@ -1,8 +1,9 @@
 name: Create Archive
-on: [push]
-  # release:
-  #   types:
-  #     - created
+#on: [push]
+on:
+  release:
+    types:
+    - created
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +26,6 @@ jobs:
     #     path: ${{ github.workspace }}/Source/latest.jmpaddin
     - name: push changes to remote
       run: |
-        ls -la
         mv Source/latest.jmpaddin .
         git config --global user.name "PaulAntonDeen"
         git config --global user.email "paulext@gmail.com"
@@ -33,4 +33,3 @@ jobs:
         git add latest.jmpaddin
         git commit -m "released"
         git push
-      #sdfg
