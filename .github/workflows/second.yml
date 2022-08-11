@@ -19,16 +19,17 @@ jobs:
         directory: 'Source'
         filename: 'latest.jmpaddin'
         exclusions: '*.git* /*node_modules/* .editorconfig'
-    - uses: actions/upload-artifact@v1
-      with:
-        name: my-artifact
-        path: ${{ github.workspace }}/Source/latest.jmpaddin
+    # - uses: actions/upload-artifact@v1
+    #   with:
+    #     name: my-artifact
+    #     path: ${{ github.workspace }}/Source/latest.jmpaddin
     - name: push changes to remote
       run: |
+        mv latest.jmpaddin ..
         git config --global user.name "PaulAntonDeen"
         git config --global user.email "paulext@gmail.com"
 
-        git add ${{ github.workspace }}/Source/latest.jmpaddin
+        git add ${{ github.workspace }}/latest.jmpaddin
         git commit -m "released"
         git push
       #sdfg
