@@ -9,7 +9,7 @@ AddinSource = "./Source/";
 //Update version file
 SourceDef = Load Text File(PathToAddindef);
 startchar = contains(SourceDef, "addinVersion"); //Find the text we need to modify
-datetext = Format( Today(), "Format Pattern", "<YY><MM><DD>"); //Place today's date in YYMMDD format
+datetext = Format( Today(), "Format Pattern", "<YY><MM><DD><hh24><mm>"); //Place today's date in YYMMDD format
 Save text file(PathToAddindef, left(SourceDef, startchar+12) || datetext || "\!n" || right(SourceDef, length(SourceDef)-startchar-19)); //Write back to addin.def
 Save text file("version.txt", datetext);
 

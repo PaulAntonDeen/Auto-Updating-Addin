@@ -1,29 +1,25 @@
 CheckUpdate = Function({AddinID, Repo},
-	AvailableVersion = Parse(Load Text File(
-		Repo || "version.txt"
-	));
+	AvailableVersion = Try(
+		Parse(Load Text File(Repo || "version.txt")),
+		New window("Error",<<modal,Text Box("Could not find file version file"));
+		Stop();
+	);
 	CurrentVersion = Get Addin(AddinID) << version;
 	If(AvailableVersion > CurrentVersion,
 		Write("Updating " || AddinID || " from " || char(CurrentVersion) || " to " || char(AvailableVersion));
 		Save Text File(
 			"$TEMP/latest.jmpaddin",
-			Load Text File(Repo || "latest.jmpaddin", blob)
+			Try(
+				Load Text File(Repo || "latest.jmpaddin", blob),
+				New window("Error",<<modal,Text Box("Could not find file .jmpaddin file"));
+				Stop();
+			);
 		);
-		Open("$TEMP/latest.jmpaddin");
-		Delete file("$TEMP/latest.jmpaddin");
-		Caption(
-			{850,450},
-			AddinID || " version " || char(Get Addin(AddinID) << version) || " now installed",
-			Spoken( 0 )
-		);
-		//Write(AddinID || " version " || char(Get Addin(AddinID) << version) || " now installed");
+		Try(Open("$TEMP/latest.jmpaddin"));
+		Try(Delete file("$TEMP/latest.jmpaddin"));
+		New window("Result",<<modal,Text Box(AddinID || " version " || char(Get Addin(AddinID) << version) || " now installed"));
 	,
-		Caption(
-			{850,450},
-			char(CurrentVersion) || " is the newest version of " || AddinID,
-			Spoken( 0 )
-		);
-		//Write(char(CurrentVersion) || " is the newest version of " || AddinID);
+		New window("Result",<<modal,Text Box(char(CurrentVersion) || " is the newest version of " || AddinID));
 	);
 );
 CheckUpdate("nu.padc.addintest", "https://raw.githubusercontent.com/PaulAntonDeen/Addin-test/main/");
