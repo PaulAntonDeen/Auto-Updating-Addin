@@ -28,6 +28,7 @@ jobs:
         git config --global user.name "PaulAntonDeen"
         git config --global user.email "paulext@gmail.com"
 
-        git add ${{ github.workspace }}/Source/latest.jmpaddin git commit -m "released"
+        git add ${{ github.workspace }}/Source/latest.jmpaddin
+        git commit -m "released"
         git push
       #sdfg
