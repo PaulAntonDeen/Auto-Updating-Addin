@@ -26,9 +26,7 @@ jobs:
     - name: push changes to remote
       run: |
         ls -la
-        mv latest.jmpaddin ..
-        cd ..
-        ls -la
+        mv Source/latest.jmpaddin .
         git config --global user.name "PaulAntonDeen"
         git config --global user.email "paulext@gmail.com"
 
