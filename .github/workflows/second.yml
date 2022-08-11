@@ -12,8 +12,7 @@ jobs:
         filename: 'latest.zip'
         path: 'Source'
         exclusions: '*.git* /*node_modules/* .editorconfig'
-    - name: Upload Release
-      uses: ncipollo/release-action@v1
+    - uses: actions/upload-artifact@v1
       with:
-        artifacts: "latest.zip"
-        token: ${{ secrets.GITHUB_TOKEN }}
+        name: my-artifact
+        path: ${{ github.workspace }}/latest.zip
