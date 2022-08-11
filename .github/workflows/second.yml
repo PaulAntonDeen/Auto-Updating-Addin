@@ -30,3 +30,4 @@ jobs:
 
         git add ${{ github.workspace }}/Source/latest.jmpaddin git commit -m "released"
         git push
+      #sdfg
