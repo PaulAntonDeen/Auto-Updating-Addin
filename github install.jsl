@@ -1,0 +1,8 @@
+filename = Save Text File(
+	"$DESKTOP/sample.jmpaddin", // extension is saved as CSV
+	Load Text File(
+		"https://github.com/PaulAntonDeen/Addin-test/raw/main/20220629%20TLC%20standard%20scripts.jmpaddin",
+		blob
+	)
+);
+open("$DESKTOP/sample.jmpaddin");
