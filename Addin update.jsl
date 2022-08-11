@@ -1,4 +1,4 @@
-CheckUpdate = Function({AddinID, Repo},
+CheckUpdate = Function({AddinID, Repo}, {Default Local},
 	AvailableVersion = Try(
 		Parse(Load Text File(Repo || "version.txt")),
 		New window("Error",<<modal,Text Box("Could not find file version file"));

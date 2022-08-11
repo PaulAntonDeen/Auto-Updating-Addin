@@ -2,9 +2,9 @@
 
 Associative Array(
 	List(
-		List( "addinVersion", 2208111430 ),
+		List( "addinVersion", 2208111436 ),
 		List( "author", "" ),
-		List( "buildDate", 3743073085 ),
+		List( "buildDate", 3743073743 ),
 		List( "deployedAddinsFilename", "publishedAddins.jsl" ),
 		List( "deployedAddinsLoc", "" ),
 		List( "id", "nu.padc.addintest" ),
