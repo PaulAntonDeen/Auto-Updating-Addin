@@ -5,14 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - name: Switch to Release Folder
+      run: |
+        cd Source
+        ls -la
     - name: Archive Release
       uses: thedoctor0/zip-release@main
       with:
         type: 'zip'
         filename: 'latest.zip'
-        path: 'Source'
         exclusions: '*.git* /*node_modules/* .editorconfig'
     - uses: actions/upload-artifact@v1
       with:
         name: my-artifact
-        path: ${{ github.workspace }}/latest.zip
+        path: ${{ github.workspace }}/Source/latest.zip
